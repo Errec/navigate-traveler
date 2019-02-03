@@ -1,0 +1,1 @@
+export const FETCH_TRAVELS = 'FETCH_TRAVELS';
