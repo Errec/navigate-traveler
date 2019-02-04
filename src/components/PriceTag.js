@@ -7,9 +7,9 @@ export default class PriceTag extends Component {
     return (
       <div className="PriceTag">
         <p>{this.props.productData.productClass}</p>
-        <p>{this.props.productData.prices[0].rrp}</p>
+        <p className="PriceTag__no-discount">{this.props.productData.prices[0].currencySymbol} {this.props.productData.prices[0].rrp}</p>
         {this.props.productData.prices[0].rrpWithDiscount < this.props.productData.prices[0].rrp && 
-          <p>{this.props.productData.prices[0].rrpWithDiscount}</p>
+          <p>{this.props.productData.prices[0].currencySymbol} {this.props.productData.prices[0].rrpWithDiscount}</p>
         }
         <p>{this.props.productData.status}</p>
       </div>

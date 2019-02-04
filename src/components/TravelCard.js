@@ -6,8 +6,8 @@ export default class TravelCard extends Component {
     return (
       <div className="TravelCard">
         <div className="TravelCard__head">
-          <p>{this.props.travelData.date}</p>
-          <p>{this.props.travelData.temperature}</p>
+          <p>Day: {this.props.travelData.date}</p>
+          <p>Temperature: {this.props.travelData.temperature}</p>
         </div>
         {this.props.travelData.products.map(product => (
           <PriceTag key={product.productClass} productData={product} />
