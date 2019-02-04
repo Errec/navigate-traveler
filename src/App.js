@@ -40,12 +40,16 @@ class App extends Component {
     return <Provider store={store}>
         <div className="App">
           <Header></Header>
-          <DatePicker
-            minDate={new Date()}
-            selected={this.state.startDate}
-            onChange={this.handleChange}
-            dateFormat="dd/MM/yyyy"
-          />
+          <div className="App__DatePicker-wrapper">
+            <DatePicker
+              className="App__DatePicker"
+              minDate={new Date()}
+              selected={this.state.startDate}
+              onChange={this.handleChange}
+              dateFormat="dd/MM/yyyy"
+            />
+            <label>Select your date</label>
+          </div>
         <TravelsList travelData={this.props.data} />
         </div>
       </Provider>;
