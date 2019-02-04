@@ -2,16 +2,15 @@ import React from 'react'
 
 export default class TravelsList extends React.Component {
   render() {
-    return (
-      <div>
+    console.log(this.props.travelData)
+    return <div>
         <ul>
           {
-            this.props.travelData.map(travel =>(
-              <li key={travel.name}>{travel.name}</li>
+          this.props.travelData.travelsListData.map(travel =>(
+              <li key={travel.date}>{travel.date}</li>
             ))
           }
         </ul>
-      </div>
-    );
+      </div>;
   }
 }

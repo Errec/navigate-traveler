@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import DatePicker from "react-datepicker";
+import moment from 'moment';
 import { fetchTravels } from "./actions/travelsActions";
 import TravelsList from "./components/TravelsList";
 import { Provider } from "react-redux";
@@ -14,24 +15,26 @@ class App extends Component {
     super(props);
     this.state = {
       startDate: new Date(),
-      isLoaded: false,
-      travelData: []
     };
  
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(date) {
-    this.setState({
-      startDate: date,
-      travelData: [{name: 'joe', number:'3'},{name: 'conan', number:'7'}]
-    });
+  componentDidMount() {
+    this.props.fetchTravels(moment(this.state.startDate).format("YYYY-MM-DD"));
+  }
 
-    this.props.fetchTravels("2019-02-01");
+  handleChange(date) {
+    this.setState(
+      () => ({
+        startDate: date
+      }),
+     () => {this.props.fetchTravels(moment(this.state.startDate).format("YYYY-MM-DD"))}
+    );
   }
 
   render() {
-    console.log(this.props)
+    console.log();
     return <Provider store={store}>
         <div className="App">
           <DatePicker
@@ -40,7 +43,7 @@ class App extends Component {
             onChange={this.handleChange}
             dateFormat="dd/MM/yyyy"
           />
-          <TravelsList travelData={this.state.travelData} />
+        <TravelsList travelData={this.props.data} />
         </div>
       </Provider>;
   }
