@@ -1,21 +1,25 @@
-import React, { Component } from 'react'
+import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchTravels } from '../actions/travelsActions';
 
+class TravelsList extends React.Component {
 
-class TravelsList extends Component {
 
-  componentWillMount () {
-    this.props.fetchTravels()
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded: false
+    };
   }
 
   render() {
+    console.log(this.props.data);
     return (
       <div>
         <h1> My Boat LIst </h1>
       </div>
-    )
+    );
   }
 }
 
@@ -25,7 +29,7 @@ TravelsList.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  data: state.TravelsData.list
+  data: state.travelsData.travels
 });
 
 export default connect(mapStateToProps, { fetchTravels })(TravelsList);
