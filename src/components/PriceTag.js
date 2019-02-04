@@ -8,7 +8,7 @@ export default class PriceTag extends Component {
       <div className="PriceTag">
         <p>{this.props.productData.productClass}</p>
         <p>{this.props.productData.prices[0].rrp}</p>
-        {this.props.productData.prices[0].rrpWithDiscount > this.props.productData.prices[0].rrp && 
+        {this.props.productData.prices[0].rrpWithDiscount < this.props.productData.prices[0].rrp && 
           <p>{this.props.productData.prices[0].rrpWithDiscount}</p>
         }
         <p>{this.props.productData.status}</p>
