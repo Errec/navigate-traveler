@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import DatePicker from "react-datepicker";
+import { Provider } from "react-redux";
 import moment from 'moment';
+import store from "./store";
 import { fetchTravels } from "./actions/travelsActions";
 import TravelsList from "./components/TravelsList";
-import { Provider } from "react-redux";
-import store from "./store";
+import Header from "./components/Header";
+
 import "./styles/App.sass";
 import "react-datepicker/dist/react-datepicker.css";
 class App extends Component {
@@ -37,6 +39,7 @@ class App extends Component {
     console.log();
     return <Provider store={store}>
         <div className="App">
+          <Header></Header>
           <DatePicker
             minDate={new Date()}
             selected={this.state.startDate}
