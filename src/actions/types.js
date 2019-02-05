@@ -1,1 +1,1 @@
-export const FETCH_TRAVELS = 'FETCH_TRAVELS';
+export const FETCH_TRAVELS = "FETCH_TRAVELS";

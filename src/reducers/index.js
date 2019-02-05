@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import travelDataReducer from './travelDataReducer';
+import travelsDataReducer from './travelsDataReducer';
 
 export default combineReducers({
-  solarData: travelDataReducer
+  travelsData: travelsDataReducer
 });

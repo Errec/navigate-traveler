@@ -1,31 +1,19 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { fetchTravels } from '../actions/travelsActions';
-
-
-class TravelsList extends Component {
-
-  componentWillMount () {
-    this.props.fetchTravels()
-  }
-
+import React from 'react';
+import TravelCard from "./TravelCard";
+import "../styles/TravelList.sass";
+export default class TravelsList extends React.Component {
   render() {
+    console.log(this.props.travelData)
     return (
-      <div>
-        <h1> My Boat LIst </h1>
+      <div className="TravelList">
+        <ul className="TravelList__list">
+          {this.props.travelData.travelsListData.map(travel => (
+            <li className="TravelList__item" key={travel.date}>
+              <TravelCard travelData={travel} />
+            </li>
+          ))}
+        </ul>
       </div>
-    )
+    );
   }
 }
-
-TravelsList.propTypes = {
-  fetchTravels: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  data: state.TravelsData.list
-});
-
-export default connect(mapStateToProps, { fetchTravels })(TravelsList);

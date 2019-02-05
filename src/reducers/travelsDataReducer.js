@@ -1,8 +1,8 @@
 import { FETCH_TRAVELS } from '../actions/types';
 
 const initialState = {
-  travelsData: {
-    list: [],
+  travels: {
+    travelsListData: [],
     isLoaded: false
   }
 }
@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
     case FETCH_TRAVELS:
       return {
         ...state,
-        travelsData: action.payload
+        travels: action.payload
       }
     default:
        return state;
