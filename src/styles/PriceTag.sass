@@ -1,8 +1,38 @@
 .PriceTag
-  background-color: chocolate
-  padding: 8px
+  background-color: #50c5d4
+  padding: 0
   border-radius: 4px
-  margin-bottom: 4px
+  margin-bottom: 12px
+  text-align: center
+  padding-bottom: 4px
+
+.PriceTag__ship
+  background: 
+    repeat: no-repeat
+    size: cover
+    position: center
+  width: 100%
+  height: 150px
+
+.PriceTag__ship--Catamaran
+  background: 
+    image: url('../imgs/catamaran.jpg')
+.PriceTag__ship--Premier
+  background: 
+    image: url('../imgs/premier.jpg')
+.PriceTag__ship--PremierPlus
+  background: 
+    image: url('../imgs/premierplus.jpg')
+
+
+.PriceTag__status
+  text-transform: uppercase
+.PriceTag__status--Available
+  color: #4c15ad
+.PriceTag__status--SoldOut
+  color: red
+.PriceTag__status--LastSpaces
+  color: #ffe500
 
 .PriceTag__no-discount
   text-decoration: line-through
